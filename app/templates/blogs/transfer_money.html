@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum=scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pul O'tkazish</title>
+</head>
+<body>
+   <div class="container">
+    <h3>Pul O'tkazish</h3>
+    <form method="post">
+        <div class="form-group">
+            <label for="username">{{ transfer.username.label }}</label>
+            {{ transfer.username(class="form-control") }}
+            {% for error in transfer.username.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            <label for="balance">{{ transfer.balance.label }}</label>
+            {{ transfer.balance(class="form-control") }}
+            {% for error in transfer.balance.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ transfer.submit(class="btn btn-primary") }}
+            <a href="{{ url_for('user_menu') }}" class="btn btn-secondary">Chiqish</a>
+        </div>
+        {{ transfer.hidden_tag() }}
+    </form>
+</div>
+</body>
+</html>
